@@ -47,7 +47,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity  implements NavigationView.OnNavigationItemSelectedListener{
+public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     String url = "https://www.mangaeden.com/api/list/0/";
     ArrayList<Mangalist> mangalist = new ArrayList<>();
@@ -81,68 +81,6 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
         recyclerView.setLayoutManager(new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL));
         recyclerView.setAdapter(adapter);
         searchView = (MaterialSearchView) findViewById(R.id.search_view);
-        searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                //Do some magic
-                for (SearchPojo pojo:searchList){
-                    if(pojo.getTitle()!=null){
-                        if(pojo.getTitle().equals(query)){
-                            Intent i=new Intent(getApplicationContext(), Chapterlist.class);
-                            i.putExtra("ID",pojo.getId());
-                            startActivity(i);
-                        }
-                    }
-                }
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                //Do some magic
-                //search manga here
-
-                if (newText.length() > 2) {
-                    g.clear();
-                    for (SearchPojo l : searchList) {
-                        String alias=l.getTitle().toLowerCase().trim();
-                        alias=alias.replace("*","");
-                        alias=alias.replace("+","");
-                        alias=alias.replace("/","");
-                        alias=alias.replace("!","");
-                        alias=alias.replace(":","");
-                        alias=alias.replace("?","");
-                        alias=alias.replace("-","");
-                        alias=alias.replace("[","");
-                        alias=alias.replace("]","");
-                        alias=alias.replace("@","");
-                        alias=alias.replace("(","");
-                        alias=alias.replace(")","");
-                        alias=alias.replace("_","");
-                        String cmpStr=newText.toLowerCase().trim();
-                        if(alias!=null&&!alias.isEmpty()){
-                            if (alias.contains(cmpStr)){
-                                g.add(l.getTitle());
-                                Log.d("RAG",l.getTitle());
-                            }
-                        }
-                    }
-                    sortlist(g);
-                }
-                return false;
-            }
-        });
-        searchView.setOnSearchViewListener(new MaterialSearchView.SearchViewListener() {
-            @Override
-            public void onSearchViewShown() {
-                //Do some magic
-            }
-            @Override
-            public void onSearchViewClosed() {
-                //Do some magic
-                Log.d("TAG", "search closed");
-            }
-        });
         previous=(RelativeLayout)findViewById(R.id.previous);
         next=(RelativeLayout)findViewById(R.id.next);
         previous.setVisibility(View.GONE);
@@ -169,18 +107,7 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-        try{
-            navigationView.getMenu().getItem(categoryPrefrences.getInt("ID",0)).setChecked(true);
-        }catch (Exception e){
-            try {
-                navigationView.getMenu().getItem(2).setChecked(true);
-            }catch (Exception e1){
-                e1.printStackTrace();
-            }
-            e.printStackTrace();
-        }
+
     }
 
     private void sortlist(List<String> g) {
@@ -257,13 +184,7 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
         MySingleton.getInstance(this).addToRequestQueue(jsObjRequest);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
-        MenuItem item = menu.findItem(R.id.action_search);
-        searchView.setMenuItem(item);
-        return true;
-    }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -289,185 +210,7 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
             super.onBackPressed();
         }
     }
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-        switch (id){
-            case R.id.all:
-                editor.putString("CAT","All");
-                editor.putInt("ID",0);
-                editor.apply();
-                showcategoryData();
-                break;
-            case R.id.action:
-                editor.putString("CAT","Action");
-                editor.putInt("ID",1);
-                editor.apply();
-                showcategoryData();
-                break;
-            case R.id.adult:
-                editor.putString("CAT","Adult");
-                editor.putInt("ID",2);
-                editor.apply();
-                showcategoryData();
-                break;
-            case R.id.adventure:
-                editor.putString("CAT","Adventure");
-                editor.putInt("ID",3);
-                editor.apply();
-                showcategoryData();
-                break;
-            case R.id.comedy:
-                editor.putString("CAT","Comedy");
-                editor.putInt("ID",4);
-                editor.apply();
-                showcategoryData();
-                break;
-            case R.id.drama:
-                editor.putString("CAT","Drama");
-                editor.putInt("ID",5);
-                editor.apply();
-                showcategoryData();
-                break;
-            case R.id.fantasy:
-                editor.putString("CAT","Fantasy");
-                editor.putInt("ID",6);
-                editor.apply();
-                showcategoryData();
-                break;
-            case R.id.mature:
-                editor.putString("CAT","Mature");
-                editor.putInt("ID",7);
-                editor.apply();
-                showcategoryData();
-                break;
-            case R.id.mystery:
-                editor.putString("CAT","Mystery");
-                editor.putInt("ID",8);
-                editor.apply();
-                showcategoryData();
-                break;
-            case R.id.school:
-                editor.putString("CAT","School Life");
-                editor.putInt("ID",9);
-                editor.apply();
-                showcategoryData();
-                break;
-            case R.id.shounen:
-                editor.putString("CAT","Shounen");
-                editor.putInt("ID",10);
-                editor.apply();
-                showcategoryData();
-                break;
-            case R.id.seinen:
-                editor.putString("CAT","Seinen");
-                editor.putInt("ID",11);
-                editor.apply();
-                showcategoryData();
-                break;
-            case R.id.smut:
-                editor.putString("CAT","Smut");
-                editor.putInt("ID",12);
-                editor.apply();
-                showcategoryData();
-                break;
-            case R.id.supernatural:
-                editor.putString("CAT","Supernatural");
-                editor.putInt("ID",13);
-                editor.apply();
-                showcategoryData();
-                break;
-            case R.id.yuri:
-                editor.putString("CAT","Yuri");
-                editor.putInt("ID",15);
-                editor.apply();
-                showcategoryData();
-                break;
-            case R.id.josei:
-                editor.putString("CAT","Josei");
-                editor.putInt("ID",16);
-                editor.apply();
-                showcategoryData();
-                break;
-            case R.id.historical:
-                editor.putString("CAT","Historical");
-                editor.putInt("ID",17);
-                editor.apply();
-                showcategoryData();
-                break;
-            case R.id.martial_arts:
-                editor.putString("CAT","Martial Arts");
-                editor.putInt("ID",18);
-                editor.apply();
-                showcategoryData();
-                break;
-            case R.id.romance:
-                editor.putString("CAT","Romance");
-                editor.putInt("ID",20);
-                editor.apply();
-                showcategoryData();
-                break;
-            case R.id.sci:
-                editor.putString("CAT","Sci-fi");
-                editor.putInt("ID",21);
-                editor.apply();
-                showcategoryData();
-                break;
-            case R.id.sports:
-                editor.putString("CAT","Sports");
-                editor.putInt("ID",22);
-                editor.apply();
-                showcategoryData();
-                break;
-            case R.id.tragedy:
-                editor.putString("CAT","Tragedy");
-                editor.putInt("ID",23);
-                editor.apply();
-                showcategoryData();
-                break;
-            case R.id.yaoi:
-                editor.putString("CAT","Yaoi");
-                editor.putInt("ID",24);
-                editor.apply();
-                showcategoryData();
-                break;
-            default:
-                editor.putString("CAT","All");
-                editor.putInt("ID",25);
-                editor.apply();
-                showcategoryData();
-                break;
-        }
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.rate:
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=mangatrends.newmangareader.infotrench.ramt57.best.com")));
-                return true;
-            case R.id.share:
-                Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
-                sharingIntent.setType("text/plain");
-                String shareBody = "Best Manga reader app download now.https://play.google.com/store/apps/details?id=mangatrends.newmangareader.infotrench.ramt57.best.com";
-                sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Share App");
-                sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
-                startActivity(Intent.createChooser(sharingIntent, "Share via"));
-                return true;
-            case R.id.refresh:
-                gress.show();
-                Toast.makeText(this, "refreshing..", Toast.LENGTH_SHORT).show();
-                volleyrequest(0);
-                break;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-        return false;
-    }
 
     private void searchvolleyrequest() {
         JsonObjectRequest jsObjRequest = new JsonObjectRequest

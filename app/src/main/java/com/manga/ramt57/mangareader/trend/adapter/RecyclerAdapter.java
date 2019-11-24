@@ -16,9 +16,7 @@ import com.manga.ramt57.mangareader.trend.R;
 import com.manga.ramt57.mangareader.trend.pojomodels.Mangalist;
 
 import java.util.ArrayList;
-/**
- * Created by user on 15-09-2017.
- */
+
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyViewHolder> {
     static ArrayList<Mangalist> mnga=new ArrayList<>();
@@ -44,11 +42,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
                 .apply(new RequestOptions()
                         .override(200,150).centerCrop().placeholder(R.drawable.placeholder).error(R.drawable.error))
                 .into(holder.mangathumb);
-//        Picasso.with(ctx)
-//                .load("https://cdn.mangaeden.com/mangasimg/"+mnga.get(position).getIm()).resize(200,150).centerCrop()
-//                .placeholder(R.drawable.placeholder)
-//                .error(R.drawable.error)
-//                .into(holder.mangathumb);
     }
 
     @Override

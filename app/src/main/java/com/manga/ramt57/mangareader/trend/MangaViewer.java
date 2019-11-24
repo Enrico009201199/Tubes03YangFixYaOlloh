@@ -15,8 +15,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.google.gson.Gson;
-import com.manga.ramt57.mangareader.trend.Transformer.ImageZoomViewPager;
-import com.manga.ramt57.mangareader.trend.Transformer.ZoomOutPageTransformer;
 import com.manga.ramt57.mangareader.trend.adapter.ListViewAdapter;
 import com.manga.ramt57.mangareader.trend.adapter.PagerAdapter;
 import com.manga.ramt57.mangareader.trend.pojomodels.ImageModel;
@@ -27,7 +25,6 @@ import java.util.Collections;
 
 public class MangaViewer extends FragmentActivity  implements PagerAdapter.fragmentClickListener{
 //   ViewPager viewPager;
-    ImageZoomViewPager zoomViewPager;
     PagerAdapter adapter;
     ArrayList<String> imagelist=new ArrayList<>();
     RecyclerView listView;
@@ -38,10 +35,7 @@ public class MangaViewer extends FragmentActivity  implements PagerAdapter.fragm
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manga_viewer);
         listView=(RecyclerView)findViewById(R.id.listView);
-        zoomViewPager= (ImageZoomViewPager) findViewById(R.id.viewpager);
-        zoomViewPager.setPageTransformer(true,new ZoomOutPageTransformer());
         adapter=new PagerAdapter(getSupportFragmentManager(),imagelist);
-        zoomViewPager.setAdapter(adapter);
         String i=getIntent().getStringExtra("ID");
         url=url+i.trim()+"/";
         adapter.setFragmentListe(this);
@@ -64,12 +58,7 @@ public class MangaViewer extends FragmentActivity  implements PagerAdapter.fragm
                 listViewAdapter=new ListViewAdapter(imagelist,getApplicationContext());
                 listView.setLayoutManager(new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.HORIZONTAL,false));
                 listView.setAdapter(listViewAdapter);
-                listViewAdapter.setItemSelectListener(new ListViewAdapter.ItemSelector() {
-                    @Override
-                    public void OnSelect(int position) {
-                        zoomViewPager.setCurrentItem(position);
-                    }
-                });
+
                 adapter.notifyDataSetChanged();
             }
         }, new Response.ErrorListener() {

@@ -14,15 +14,11 @@ import com.manga.ramt57.mangareader.trend.R;
 import java.util.ArrayList;
 
 
-/**
- * Created by user on 16-09-2017.
- */
-
 public class ChapterAdapter extends RecyclerView.Adapter<ChapterAdapter.MyViewHolder> {
     static  ArrayList<String>  chapterlist;
     static viewchapter listener;
     Context ctx;
-    static DownloadCHapter listener4;
+
     public  ChapterAdapter(ArrayList<String > var){
         chapterlist=var;
     }
@@ -51,13 +47,6 @@ public class ChapterAdapter extends RecyclerView.Adapter<ChapterAdapter.MyViewHo
             super(itemView);
             button=itemView.findViewById(R.id.normalButton);
             linearLayout=itemView.findViewById(R.id.clickChap);
-            download=itemView.findViewById(R.id.download);
-            download.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    listener4.DownloadChap(getAdapterPosition());
-                }
-            });
             linearLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -69,13 +58,10 @@ public class ChapterAdapter extends RecyclerView.Adapter<ChapterAdapter.MyViewHo
     public static void setChapterlist(viewchapter listene){
         listener=listene;
     }
+
+
     public interface viewchapter{
         public void viewChap(int position);
     }
-    public static void setDownloadListener(DownloadCHapter listener){
-        listener4=listener;
-    }
-    public  interface DownloadCHapter{
-        public void DownloadChap(int position);
-    }
+
 }

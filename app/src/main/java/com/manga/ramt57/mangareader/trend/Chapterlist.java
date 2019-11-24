@@ -44,7 +44,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 
-public class Chapterlist extends AppCompatActivity implements ChapterAdapter.viewchapter, ChapterAdapter.DownloadCHapter {
+public class Chapterlist extends AppCompatActivity implements ChapterAdapter.viewchapter {
     private String url = "https://www.mangaeden.com/api/manga/";
     ProgressDialog gress;
     RecyclerView recyclerView;
@@ -95,16 +95,7 @@ public class Chapterlist extends AppCompatActivity implements ChapterAdapter.vie
         gress.setIndeterminate(true);
         fetch = Fetch.newInstance(getApplicationContext());
         new Fetch.Settings(getApplicationContext()).setConcurrentDownloadsLimit(2).apply();
-//        Button button=(Button)findViewById(R.id.button);
-//        button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                bulidDialog(msgdescription);
-//            }
-//        });
-
         ChapterAdapter.setChapterlist(this);
-        ChapterAdapter.setDownloadListener(this);
         gress.show();
     }
 
@@ -120,11 +111,6 @@ public class Chapterlist extends AppCompatActivity implements ChapterAdapter.vie
                                 .apply(new RequestOptions()
                                         .override(154,250).centerCrop().placeholder(R.drawable.placeholder).error(R.drawable.error))
                                 .into(img);
-//                        Picasso.with(getApplicationContext())
-//                                .load("https://cdn.mangaeden.com/mangasimg/" + chapter.getImage()).resize(154, 230).centerCrop()
-//                                .placeholder(R.drawable.placeholder)
-//                                .error(R.drawable.error)
-//                                .into(img);
                         title.setText(chapter.getTitle());
                         total_chapter.setText(chapter.getChapters_len() + " chapters");
                         author.setText("Author: " + chapter.getAuthor());
@@ -138,8 +124,6 @@ public class Chapterlist extends AppCompatActivity implements ChapterAdapter.vie
                             stringBuffer.append(catgry + " | ");
                         }
                         genre.setText(stringBuffer.toString());
-//                            adapter1=new ArrayAdapter<String>(getApplicationContext(),R.layout.category_row,R.id.textView3,chapter.getCategories());
-//                            listView.setAdapter(adapter1);
                         Object ov[] = chapter.getChapters().toArray();
                         for (Object d : ov) {
                             Log.d("URL", d.toString() + 'd');
@@ -185,12 +169,7 @@ public class Chapterlist extends AppCompatActivity implements ChapterAdapter.vie
         startActivity(i);
     }
 
-    @Override
-    public void DownloadChap(int position) {
-        if (checkPermission()) {
-            callvolley(position);
-        }
-    }
+
 
     private void DownloadImages(final ArrayList<String> imagelist1, final int position) {
         Snackbar.make(coordinatorLayout, "Saved to sdcard/MangaTrend .", Snackbar.LENGTH_LONG).show();

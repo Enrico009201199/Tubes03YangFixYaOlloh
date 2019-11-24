@@ -8,9 +8,7 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import com.manga.ramt57.mangareader.trend.PageFragment;
 
 import java.util.ArrayList;
-/**
- * Created by user on 19-09-2017.
- */
+
 
 public class PagerAdapter extends FragmentStatePagerAdapter implements PageFragment.ItemClick{
     ArrayList<String> url=new ArrayList<>();

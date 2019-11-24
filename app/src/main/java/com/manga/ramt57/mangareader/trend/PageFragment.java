@@ -22,9 +22,8 @@ public class PageFragment extends Fragment {
     static  ItemClick listner;
     GestureDetector gestureDetector;
     ProgressBar bar;
-    public PageFragment() {
-        // Required empty public constructor
-    }
+
+    public PageFragment() {}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -33,31 +32,10 @@ public class PageFragment extends Fragment {
         final ViewGroup rootView = (ViewGroup) inflater.inflate(
                 R.layout.fragment_page, container, false);
         img=rootView.findViewById(R.id.image);
-//        Target target=new Target() {
-//            @Override
-//            public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
-//                img.setImageBitmap(bitmap);
-//                bar.setVisibility(View.GONE);
-//            }
-//
-//            @Override
-//            public void onBitmapFailed(Drawable errorDrawable) {
-//                bar.setVisibility(View.GONE);
-//            }
-//
-//            @Override
-//            public void onPrepareLoad(Drawable placeHolderDrawable) {
-//                bar.setVisibility(View.VISIBLE);
-//            }
-//        };
-//
-//        img.setTag(target);
         bar=(ProgressBar)rootView.findViewById(R.id.progress);
         bar.setVisibility(View.VISIBLE);
         gestureDetector = new GestureDetector(getContext(), new GestureListener());
         String url=getArguments().getString("URL");
-//        Picasso.with(rootView.getContext()).load("https://cdn.mangaeden.com/mangasimg/"+url.trim())
-//               .into(target);
         Glide.with(getActivity())
                 .load("https://cdn.mangaeden.com/mangasimg/"+url.trim())
                 .listener(new RequestListener<Drawable>() {

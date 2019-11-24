@@ -12,15 +12,16 @@
         android:layout_width="match_parent"
         android:id="@+id/cordinate"
         android:layout_height="match_parent">
+
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="?attr/actionBarSize"
             android:layout_marginBottom="?attr/actionBarSize"
-            android:scrollbars="vertical">
-        </android.support.v7.widget.RecyclerView>
-      <include layout="@layout/bottom_bar"/>
+            android:scrollbars="vertical"></android.support.v7.widget.RecyclerView>
+
+        <include layout="@layout/bottom_bar"/>
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -44,12 +45,5 @@
 
     </android.support.design.widget.CoordinatorLayout>
 
-    <android.support.design.widget.NavigationView
-        android:id="@+id/nav_view"
-        android:layout_width="170dp"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:fitsSystemWindows="true"
-        app:theme="@style/YourStyleNameFor.NavigationDrawer"
-        app:menu="@menu/activity_drawer_drawer" />
+
 </android.support.v4.widget.DrawerLayout>

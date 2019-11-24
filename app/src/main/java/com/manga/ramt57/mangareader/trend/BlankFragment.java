@@ -13,9 +13,7 @@ import com.manga.ramt57.mangareader.trend.pojomodels.Mangalist;
 
 import java.util.ArrayList;
 
-/**
- * A simple {@link Fragment} subclass.
- */
+
 public class BlankFragment extends Fragment {
 
     RecyclerView recyclerView;
