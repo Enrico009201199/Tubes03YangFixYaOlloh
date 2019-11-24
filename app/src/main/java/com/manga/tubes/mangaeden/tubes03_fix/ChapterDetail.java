@@ -1,10 +1,5 @@
-package com.manga.ramt57.mangareader.trend.pojomodels;
-
+package com.manga.tubes.mangaeden.tubes03_fix;
 import java.util.ArrayList;
-
-/**
- * Created by user on 15-09-2017.
- */
 
 public class ChapterDetail {
     String title;

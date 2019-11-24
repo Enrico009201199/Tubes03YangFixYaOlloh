@@ -1,4 +1,4 @@
-package com.manga.ramt57.mangareader.trend;
+package com.manga.tubes.mangaeden.tubes03_fix;
 
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
@@ -15,9 +15,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.google.gson.Gson;
-import com.manga.ramt57.mangareader.trend.adapter.ListViewAdapter;
-import com.manga.ramt57.mangareader.trend.adapter.PagerAdapter;
-import com.manga.ramt57.mangareader.trend.pojomodels.ImageModel;
+import com.manga.tubes.mangaeden.tubes03_fix.R;
 
 import java.util.ArrayList;
 import java.util.Collections;

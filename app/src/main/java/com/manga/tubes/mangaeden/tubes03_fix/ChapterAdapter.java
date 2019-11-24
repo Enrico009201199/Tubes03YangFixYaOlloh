@@ -1,4 +1,4 @@
-package com.manga.ramt57.mangareader.trend.adapter;
+package com.manga.tubes.mangaeden.tubes03_fix;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -9,8 +9,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.manga.ramt57.mangareader.trend.R;
-
+import com.manga.tubes.mangaeden.tubes03_fix.R;
 import java.util.ArrayList;
 
 

@@ -1,11 +1,9 @@
-package com.manga.ramt57.mangareader.trend.adapter;
+package com.manga.tubes.mangaeden.tubes03_fix;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
-
-import com.manga.ramt57.mangareader.trend.PageFragment;
 
 import java.util.ArrayList;
 

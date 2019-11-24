@@ -1,4 +1,4 @@
-package com.manga.ramt57.mangareader.trend.adapter;
+package com.manga.tubes.mangaeden.tubes03_fix;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,9 +11,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
-import com.manga.ramt57.mangareader.trend.Chapterlist;
-import com.manga.ramt57.mangareader.trend.R;
-import com.manga.ramt57.mangareader.trend.pojomodels.Mangalist;
+import com.manga.tubes.mangaeden.tubes03_fix.R;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package com.manga.ramt57.mangareader.trend;
+package com.manga.tubes.mangaeden.tubes03_fix;
 
 import android.app.Activity;
 import android.content.Intent;

@@ -1,5 +1,4 @@
-package com.manga.ramt57.mangareader.trend.pojomodels;
-
+package com.manga.tubes.mangaeden.tubes03_fix;
 import java.util.ArrayList;
 
 /**

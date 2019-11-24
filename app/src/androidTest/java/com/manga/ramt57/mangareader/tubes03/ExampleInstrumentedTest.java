@@ -1,4 +1,4 @@
-package com.manga.ramt57.mangareader.trend;
+package com.manga.ramt57.mangareader.tubes03;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

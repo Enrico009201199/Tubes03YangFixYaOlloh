@@ -1,4 +1,4 @@
-package com.manga.ramt57.mangareader.trend;
+package com.manga.ramt57.mangareader.tubes03;
 
 import org.junit.Test;
 

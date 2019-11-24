@@ -1,5 +1,4 @@
-package com.manga.ramt57.mangareader.trend;
-
+package com.manga.tubes.mangaeden.tubes03_fix;
 import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
@@ -31,9 +30,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.google.gson.Gson;
-import com.manga.ramt57.mangareader.trend.adapter.ChapterAdapter;
-import com.manga.ramt57.mangareader.trend.pojomodels.ChapterDetail;
-import com.manga.ramt57.mangareader.trend.pojomodels.ImageModel;
+import com.manga.tubes.mangaeden.tubes03_fix.R;
 import com.tonyodev.fetch.Fetch;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 

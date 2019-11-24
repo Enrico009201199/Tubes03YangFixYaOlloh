@@ -1,14 +1,11 @@
-package com.manga.ramt57.mangareader.trend;
+package com.manga.tubes.mangaeden.tubes03_fix;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
-import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
-import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -19,8 +16,6 @@ import android.text.TextUtils;
 import android.util.JsonReader;
 import android.util.JsonToken;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -30,10 +25,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.google.gson.Gson;
-import com.manga.ramt57.mangareader.trend.adapter.RecyclerAdapter;
-import com.manga.ramt57.mangareader.trend.pojomodels.Mangabasemodel;
-import com.manga.ramt57.mangareader.trend.pojomodels.Mangalist;
-import com.manga.ramt57.mangareader.trend.pojomodels.SearchPojo;
+import com.manga.tubes.mangaeden.tubes03_fix.R;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
 import org.json.JSONObject;
@@ -114,13 +106,6 @@ public class MainActivity extends AppCompatActivity {
         String arrays[] = new String[g.size()];
                     arrays = g.toArray(arrays);
                     searchView.setSuggestions(arrays);
-//        for (SearchPojo pojo:searchList){
-//            if(pojo.getTitle()!=null){
-//                if(g.contains(pojo.getTitle())){
-//                    Log.d("sap",pojo.getTitle());
-//                }
-//            }
-//        }
     }
 
     private void volleyrequest(final int  i) {

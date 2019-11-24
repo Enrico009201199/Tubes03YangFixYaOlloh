@@ -1,8 +1,5 @@
-package com.manga.ramt57.mangareader.trend.pojomodels;
+package com.manga.tubes.mangaeden.tubes03_fix;
 
-/**
- * Created by user on 03-10-2017.
- */
 
 public class SearchPojo  {
     String title;
